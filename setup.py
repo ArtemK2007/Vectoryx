@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='Vectoryx',
-    version='0.1.0',
+    version='0.1.1',
     author='Artem Kryachko',
     author_email='artemkryachko2007@email.com',
     description='A simple vector operations library',
