@@ -39,12 +39,27 @@ def cross_product(v1, v2):
 def is_colinear(v1, v2):
     if len(v1) != len(v2):
         raise ValueError("Vectors must be of the same length")
-    try:
-        ratios = [a / b if b != 0 else None for a, b in zip(v1, v2)]
-        non_none = [r for r in ratios if r is not None]
-        return all(r == non_none[0] for r in non_none)
-    except ZeroDivisionError:
-        return False
+
+    if all(a == 0 for a in v1) or all(b == 0 for b in v2):
+        return True  # нулевой вектор считается коллинеарным
+
+    if len(v1) == 3:
+        return cross_product(v1, v2) == [0, 0, 0]
+
+    # Для n-мерных: проверка на равные коэффициенты
+    ratio = None
+    for a, b in zip(v1, v2):
+        if b == 0:
+            if a != 0:
+                return False
+        else:
+            current_ratio = a / b
+            if ratio is None:
+                ratio = current_ratio
+            elif current_ratio != ratio:
+                return False
+    return True
+
 
 def is_ortogonal(v1, v2, tol=1e-10):
     return abs(dot_product(v1, v2)) < tol
