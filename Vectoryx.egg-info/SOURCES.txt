@@ -8,4 +8,3 @@ Vectoryx.egg-info/PKG-INFO
 Vectoryx.egg-info/SOURCES.txt
 Vectoryx.egg-info/dependency_links.txt
 Vectoryx.egg-info/top_level.txt
-tests/tests.py
