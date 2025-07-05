@@ -8,5 +8,6 @@ from .Vectoryx import (
     cross_product,
     is_colinear,
     is_ortogonal,
-    cosinus_similarity
+    cosinus_similarity,
+    v_angle
 )

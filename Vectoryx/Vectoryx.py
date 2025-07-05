@@ -57,3 +57,17 @@ def cosinus_similarity(v1, v2):
     if denominator == 0:
         return 0
     return numerator / denominator
+
+def v_angle(v1, v2, in_degrees=False):
+    from math import acos, degrees
+    if len(v1) != len(v2):
+        raise ValueError("Vectors must be of the same length")
+    numerator = dot_product(v1, v2)
+    denominator = vector_length(v1) * vector_length(v2)
+    if denominator == 0:
+        raise ValueError("Cannot angle zero vector")
+    cos_theta = max(min(numerator / denominator, 1.0), -1.0)
+    angle = acos(cos_theta)
+
+    return degrees(angle) if in_degrees else angle
+
