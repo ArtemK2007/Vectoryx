@@ -7,5 +7,6 @@ from .Vectoryx import (
     normalize_vector,
     cross_product,
     is_colinear,
-    is_ortogonal
+    is_ortogonal,
+    cosinus_similarity
 )
